@@ -5,7 +5,7 @@ Solutions for some of the Portuguese Olympiad in Informatics (ONI) training exer
 ## 10 Problemas Fáceis
 
 | Exercise | Status |
-|----------+--------|
+|----------|--------|
 | A        |        |
 | B        |        |
 | C        |        |
@@ -20,7 +20,7 @@ Solutions for some of the Portuguese Olympiad in Informatics (ONI) training exer
 ## Qualificação 2015 a 2017
 
 | Exercise | Status |
-|----------+--------|
+|----------|--------|
 | 15A      |        |
 | 15B      |        |
 | 15C      |        |
