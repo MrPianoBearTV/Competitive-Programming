@@ -3,6 +3,9 @@
 using namespace std;
 
 int main() {
+
+  // 65 pts. sol.
+
   int n, b, instrucoes, encontrados = 0;
   string arcas;
 
@@ -10,7 +13,7 @@ int main() {
 
   cin >> arcas;
 
-  string::iterator it = arcas.begin() + b - 1; // talvez +1
+  string::iterator it = arcas.begin() + b - 1;
   if (*it == 'T') {
     encontrados++; 
     *it = 'V';

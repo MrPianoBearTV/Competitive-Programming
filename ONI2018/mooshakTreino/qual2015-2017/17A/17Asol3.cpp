@@ -32,28 +32,9 @@ int main() {
     }
   }
 
-  apontador = b - 1;
-
-  if (arcas[apontador] == 'T') {
-    encontrados++;
-    arcas[apontador] = 'V';
-  }
-
-  for (int x = 0; x < maxE; x++) {
-    apontador--;
-    if (arcas[apontador] == 'T') {
+  for (int x = maxE; x <= maxD; x++) {
+    if (arcas[x] == 'T') {
       encontrados++;
-      arcas[apontador] = 'V';
-    }
-  }
-
-  apontador = b - 1;
-
-  for (int x = 0; x < maxD; x++) {
-    apontador++;
-    if (arcas[apontador] == 'T') {
-      encontrados++;
-      arcas[apontador] = 'V';
     }
   }
 

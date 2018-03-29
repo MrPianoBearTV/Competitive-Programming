@@ -4,6 +4,8 @@ using namespace std;
 
 int main() {
 
+  // 100 pts. sol.
+
   int n, b, i, encontrados = 0;
   cin >> n >> b >> i;
   b -= 1;
