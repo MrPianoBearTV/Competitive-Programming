@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int calculate(vector<int>::iterator it, vector<int> a, vector<int> b) {
+int calculate(vector<int>::iterator it, vector<int>& a, vector<int>& b) {
 
   if (it == a.end()) return (int) b.size();
 
@@ -18,7 +18,7 @@ int calculate(vector<int>::iterator it, vector<int> a, vector<int> b) {
     b.push_back(*it);
   }
 
-  return calculate(it++, a, b);
+  return calculate(++it, a, b);
 }
 
 int main() {
@@ -42,7 +42,7 @@ int main() {
     }
   }
 
-  cout << max << endl;
+  cout << max - 1 << endl;
 
   return 0;
 }
