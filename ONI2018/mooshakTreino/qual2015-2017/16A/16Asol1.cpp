@@ -6,7 +6,7 @@ rapariga + k, se o olímpico for rapaz, incrementar o número de pares.
 
 Pontuação: 65 pontos
 Complexidade temporal: O(K*N) 
-Complexidade espacial:
+Complexidade espacial: O(N)
 */
 
 #include <iostream>
