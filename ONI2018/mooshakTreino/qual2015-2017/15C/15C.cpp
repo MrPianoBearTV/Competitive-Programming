@@ -13,32 +13,39 @@ int getLength(int x) {
     return length;
 }
 
-bool isFogo(int x) {
+bool getDir(int x) {
   int prev = x % 10;
   x /= 10;
 
   int current = x % 10;
+  x /= 10;
+
+  while (prev == current) {
+    prev = x % 10;
+    x /= 10;
+
+    current = x % 10;
+    x /= 10;
+  }
 
   // true -> crescente, false -> decrescente
-  bool dir = prev < current ? true : false;
+  return  prev < current ? true : false;
+ }
+
+bool isFogo(int x) {
+  bool dir = getDir(x);
+  int prev, current = x % 10;
+  x /= 10;
 
   for (x; x > 0; x /= 10) {
     prev = current;
     current = x % 10;
 
-    if (dir) {
-      if (prev <= current) {
-	continue;
-      } else {
-	return true;
-      }
-    } else {
-      if (prev >= current) {
-	continue;
-      } else {
-	return true;
-      }
-    }
+    if (dir && prev <= current) continue;
+    else return true;
+
+    if (!dir && prev >= current) continue;
+    else return true;
   }
 
   return false;
