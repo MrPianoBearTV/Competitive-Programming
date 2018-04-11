@@ -14,15 +14,13 @@ int getLength(int x) {
 }
 
 bool isDiffDir(int dir1, int dir2) {
-  if ((dir1 > 0 && dir2 < 0) || (dir1 < 0 && dir2 > 0)) {
-    return true;
-  }
-
+  if ((dir1 > 0 && dir2 < 0) || (dir1 < 0 && dir2 > 0)) return true;
   return false;
 }
 
 bool isFogoDir(int x, int prevDir) {
-  if (x < 100) return false;
+
+  if (x == 0) return false;
 
   int prev = x % 10;
   x /= 10;
@@ -30,7 +28,7 @@ bool isFogoDir(int x, int prevDir) {
   
   int currentDir = prev - current;
 
-  if (isDiffDir) {
+  if (isDiffDir(prevDir, currentDir)) {
     return true;
   } else {
     return isFogoDir(x, currentDir);
@@ -40,6 +38,7 @@ bool isFogoDir(int x, int prevDir) {
 }
 
 bool isFogo(int x) {
+  if (x < 100) return false;
   return isFogoDir(x, 0);
 }
 
@@ -68,6 +67,7 @@ int main() {
       cin >> a >> b;
       nums[i] = getNums(a, b);
     }
+
     
     for (int i = 0; i < c; i++) {
       cout << nums[i] << endl;
