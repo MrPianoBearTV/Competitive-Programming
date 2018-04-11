@@ -19,22 +19,17 @@ bool isDiffDir(int dir1, int dir2) {
 }
 
 bool isFogoDir(int x, int prevDir) {
-
   if (x == 0) return false;
 
   int prev = x % 10;
   x /= 10;
   int current = x % 10;
   
-  int currentDir = prev - current;
+  int currentDir = current - prev;
+  int dir = prevDir + currentDir;
 
-  if (isDiffDir(prevDir, currentDir)) {
-    return true;
-  } else {
-    return isFogoDir(x, currentDir);
-  }
-
-  return false;
+  if (isDiffDir(prevDir, currentDir)) return true;
+  else return isFogoDir(x, dir);
 }
 
 bool isFogo(int x) {
