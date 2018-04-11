@@ -13,42 +13,34 @@ int getLength(int x) {
     return length;
 }
 
-bool getDir(int x) {
-  int prev = x % 10;
-  x /= 10;
-
-  int current = x % 10;
-  x /= 10;
-
-  while (prev == current) {
-    prev = x % 10;
-    x /= 10;
-
-    current = x % 10;
-    x /= 10;
-  }
-
-  // true -> crescente, false -> decrescente
-  return  prev < current ? true : false;
- }
-
-bool isFogo(int x) {
-  bool dir = getDir(x);
-  int prev, current = x % 10;
-  x /= 10;
-
-  for (x; x > 0; x /= 10) {
-    prev = current;
-    current = x % 10;
-
-    if (dir && prev <= current) continue;
-    else return true;
-
-    if (!dir && prev >= current) continue;
-    else return true;
+bool isDiffDir(int dir1, int dir2) {
+  if ((dir1 > 0 && dir2 < 0) || (dir1 < 0 && dir2 > 0)) {
+    return true;
   }
 
   return false;
+}
+
+bool isFogoDir(int x, int prevDir) {
+  if (x < 100) return false;
+
+  int prev = x % 10;
+  x /= 10;
+  int current = x % 10;
+  
+  int currentDir = prev - current;
+
+  if (isDiffDir) {
+    return true;
+  } else {
+    return isFogoDir(x, currentDir);
+  }
+
+  return false;
+}
+
+bool isFogo(int x) {
+  return isFogoDir(x, 0);
 }
 
 int getNums(int a, int b) {
