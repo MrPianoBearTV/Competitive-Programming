@@ -12,83 +12,85 @@ long shortestDistance(vector<vector<int> > passeios, vector<vector<int> > passad
   int current = A;
 
   //
+  /*
   cout << "Call ao shortest distance" << endl;
   cout << " A = " << A << endl;
   cout << " B = " << B << endl;
   cout << " C = " << C << endl;
   cout << " D = " << D << endl;
+  */
   //
 
   // mesmo passeio
   if (B == D) {
     //
-    cout << "Caso 1" << endl;
+    //cout << "Caso 1" << endl;
     //
     while (current < C) {
-      distance += passeios[B][current];
+      distance += passeios[B-1][current];
       current++;
     }
   } else {
     //
-    cout << "Caso 2" << endl;
+    //cout << "Caso 2" << endl;
     //
 
     int passadeiraX = passadeiras[0][0];
     int passadeiraT = passadeiras[0][1];
     //
-    cout << "Definir os int's da passadeira" << endl;
-    cout << " passadeiraX = " << passadeiraX << endl;
-    cout << " passadeiraT = " << passadeiraT << endl;
+    //cout << "Definir os int's da passadeira" << endl;
+    //cout << " passadeiraX = " << passadeiraX << endl;
+    //cout << " passadeiraT = " << passadeiraT << endl;
     //
 
     int otherY = 0;
     if (B == 0) otherY = 1;
 
     //
-    cout << " otherY = " << otherY << endl;
+    //cout << " otherY = " << otherY << endl;
     //
     
     //
-    cout << "1o loop:" << endl;
+    //cout << "1o loop:" << endl;
     //
 
     while (current < passadeiraX) {
       //
-      cout << " current = " << current << endl;
-      cout << " distance = " << distance << endl;
+      //cout << " current = " << current << endl;
+      //cout << " distance = " << distance << endl;
       //
-      distance += passeios[B][current];
+      distance += passeios[B-1][current];
       current++;
     }
 
     //
-    cout << "1o loop done" << endl;
+    //cout << "1o loop done" << endl;
     //
 
     distance += passadeiraT;
     
     //
-    cout << " current = " << current << endl;
-    cout << " distance = " << distance << endl;
+    //cout << " current = " << current << endl;
+    //cout << " distance = " << distance << endl;
     //
 
     //
-    cout << "2o loop:" << endl;
+    //cout << "2o loop:" << endl;
     //
 
     if (passadeiraX < C) {
       while (current < C) {
         //
-        cout << "current = " << current << endl;
-        cout << "distance = " << distance << endl;
+        //cout << "current = " << current << endl;
+        //cout << "distance = " << distance << endl;
         //
         distance += passeios[otherY][current++];
       }
     } else if (passadeiraX > C) {
       while (current > C) {
         //
-        cout << "current = " << current << endl;
-        cout << "distance = " << distance << endl;
+        //cout << "current = " << current << endl;
+        //cout << "distance = " << distance << endl;
         //
         distance += passeios[otherY][--current];
       }
@@ -141,6 +143,7 @@ int main() {
   }
 
   //
+  /*
   cout << "n = " << n << endl;
   cout << "passeios: " << endl;
   for (int i = 0; i < (int) passeios[0].size(); i++) {
@@ -164,11 +167,12 @@ int main() {
       cout << " perguntas[" << i << "][" << j << "] = " << perguntas[i][j] << endl;
     }
   }
+  */
   //
   
   for (int i = 0; i < q; i++) {
     //
-    cout << "Antes do shortestDistance" << endl;
+    //cout << "Antes do shortestDistance" << endl;
     //
     cout << shortestDistance(passeios, passadeiras, perguntas[i][0], perguntas[i][1], perguntas[i][2], perguntas[i][3]) << endl;
   }
