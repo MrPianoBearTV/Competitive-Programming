@@ -12,13 +12,11 @@ long shortestDistance(vector<vector<int> > passeios, vector<vector<int> > passad
   int current = A;
 
   //
-  /*
-  cout << "Call ao shortest distance" << endl;
-  cout << " A = " << A << endl;
-  cout << " B = " << B << endl;
-  cout << " C = " << C << endl;
-  cout << " D = " << D << endl;
-  */
+  //cout << "Call ao shortest distance" << endl;
+  //cout << " A = " << A << endl;
+  //cout << " B = " << B << endl;
+  //cout << " C = " << C << endl;
+  //cout << " D = " << D << endl;
   //
 
   // mesmo passeio
@@ -43,8 +41,7 @@ long shortestDistance(vector<vector<int> > passeios, vector<vector<int> > passad
     //cout << " passadeiraT = " << passadeiraT << endl;
     //
 
-    int otherY = 0;
-    if (B == 0) otherY = 1;
+    int otherY = (B == 1 ? 2 : 1);
 
     //
     //cout << " otherY = " << otherY << endl;
@@ -59,17 +56,18 @@ long shortestDistance(vector<vector<int> > passeios, vector<vector<int> > passad
       //cout << " current = " << current << endl;
       //cout << " distance = " << distance << endl;
       //
-      distance += passeios[B-1][current];
-      current++;
+      distance += passeios[B-1][current++];
     }
 
     //
     //cout << "1o loop done" << endl;
     //
 
+    //distance += passeios[B-1][(int) passeios[B-1].size() - 1];
     distance += passadeiraT;
     
     //
+    //cout << "Depois do 2o loop" << endl;
     //cout << " current = " << current << endl;
     //cout << " distance = " << distance << endl;
     //
@@ -84,7 +82,7 @@ long shortestDistance(vector<vector<int> > passeios, vector<vector<int> > passad
         //cout << "current = " << current << endl;
         //cout << "distance = " << distance << endl;
         //
-        distance += passeios[otherY][current++];
+        distance += passeios[otherY-1][current++];
       }
     } else if (passadeiraX > C) {
       while (current > C) {
@@ -92,13 +90,18 @@ long shortestDistance(vector<vector<int> > passeios, vector<vector<int> > passad
         //cout << "current = " << current << endl;
         //cout << "distance = " << distance << endl;
         //
-        distance += passeios[otherY][--current];
+        distance += passeios[otherY-1][--current];
       }
     
     }
 
   
   }
+
+  //
+  //cout << " final current = " << current << endl;
+  //cout << " final distance = " << distance << endl;
+  //
 
   return distance;
 }
